@@ -1,7 +1,6 @@
 async function getDashboardData(url = '/data.json') {
     const response = await fetch(url);
     const data = await response.json();
-
     return data;
 }
 
@@ -16,7 +15,6 @@ class DashboardItem {
         this.data = data;
         this.container = document.querySelector(container);
         this.view = view;
-
         this._createMarkup();
     }
 
@@ -48,7 +46,6 @@ class DashboardItem {
         this.time = this.container.querySelector(`.dashboard__item--${id} .tracking-card__time`);
         this.prev = this.container.querySelector(`.dashboard__item--${id} .tracking-card__prev-period`);
     }
-
     changeView(view) {
         this.view = view.toLowerCase();
         const {current, previous} = this.data.timeframes[this.view.toLowerCase()];
